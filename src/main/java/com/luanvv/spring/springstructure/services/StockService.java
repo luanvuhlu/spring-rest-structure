@@ -3,9 +3,7 @@ package com.luanvv.spring.springstructure.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.annotations.Cache;
 import org.springframework.data.domain.Page;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.luanvv.spring.springstructure.entities.Stock;
 
@@ -13,7 +11,6 @@ import com.luanvv.spring.springstructure.entities.Stock;
  * The Interface ClientCmsService.
  * @author luanv
  */
-@Transactional(readOnly = true)
 public interface StockService {
 
 	/**
@@ -54,7 +51,6 @@ public interface StockService {
 	 * @param id the id
 	 * @return true, if successful
 	 */
-	@Transactional
 	void delete(String id);
 
 	/**
@@ -63,7 +59,6 @@ public interface StockService {
 	 * @param resource the resource
 	 * @return the stock
 	 */
-	@Transactional
 	Stock create(Stock resource);
 
 }

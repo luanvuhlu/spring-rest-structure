@@ -50,7 +50,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 				.stream()
 				.map(ConstraintViolation::getMessage)
 				.collect(Collectors.toList());
-		return new ResponseEntity<>(error(ex, errors), HttpStatus.BAD_REQUEST);
+		return ResponseEntity.badRequest().body(error(ex, errors));
 	}
 
 	@ExceptionHandler(EntityNotFoundException.class)
@@ -61,7 +61,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-	    return new ResponseEntity(ex.getBindingResult(), HttpStatus.BAD_REQUEST);
+	    return ResponseEntity.badRequest().body(ex.getBindingResult());
 	}
 	
 	/**

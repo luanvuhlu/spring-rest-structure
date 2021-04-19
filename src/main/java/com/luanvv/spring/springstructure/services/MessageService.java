@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
  * The Interface MessageService.
  * @author luanv
  */
-@Service
 public interface MessageService {
 
 	/**

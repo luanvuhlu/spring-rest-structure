@@ -11,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.luanvv.spring.springstructure.entities.Stock;
 import com.luanvv.spring.springstructure.repositories.StockRepository;
 import com.luanvv.spring.springstructure.repositories.StockRepositoryCustom;
 
 @Service
+@Transactional(readOnly = true)
 public class StockServiceImpl implements StockService {
 	
 	@Autowired
@@ -43,6 +45,7 @@ public class StockServiceImpl implements StockService {
 		return stockDao.findAll();
 	}
 
+	@Transactional
 	@Override
 	public void delete(String id) {
 		Stock stock = stockDao.findByUuid(UUID.fromString(id))
@@ -50,6 +53,7 @@ public class StockServiceImpl implements StockService {
 		stockDao.delete(stock);
 	}
 
+	@Transactional
 	@Override
 	public Stock create(Stock resource) {
 		return stockDao.save(resource);

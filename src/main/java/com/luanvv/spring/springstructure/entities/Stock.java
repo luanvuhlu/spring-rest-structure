@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -34,7 +32,6 @@ public class Stock extends AbstractEntity implements java.io.Serializable {
 	@Column(name = "STOCK_CODE", nullable = false, length = 10)
 	private String stockCode;
 	
-//	@StockNameValid
 	@Size(min = 10, max = 20)
 	@Column(name = "STOCK_NAME", nullable = false, length = 20)
 	private String stockName;
