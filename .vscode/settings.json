@@ -1,0 +1,14 @@
+{
+  "spring.i18n.propertiesFilePaths": [
+    "src/main/resources/messages.properties"
+  ],
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "src\\\\main\\\\resources\\\\(templates|static|mail)\\.*",
+        "isAsync": true,
+        "cmd": "python ${workspaceRoot}/scripts/copy-target.py ${relativeFile}"
+      }
+    ]
+  }
+}
